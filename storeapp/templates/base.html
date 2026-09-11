@@ -108,28 +108,28 @@
 
                         <li>
                             <a class="dropdown-item"
-                               href="#">
+                               href="{% url 'product_list' %}?category=1">
                                 Electronics
                             </a>
                         </li>
 
                         <li>
                             <a class="dropdown-item"
-                               href="#">
+                               href="{% url 'product_list' %}?category=2">
                                 Fashion
                             </a>
                         </li>
 
                         <li>
                             <a class="dropdown-item"
-                               href="#">
+                               href="{% url 'product_list' %}?category=3">
                                 Furniture
                             </a>
                         </li>
 
                         <li>
                             <a class="dropdown-item"
-                               href="#">
+                               href="{% url 'product_list' %}?category=4">
                                 Sports
                             </a>
                         </li>
@@ -139,19 +139,10 @@
                 </li>
 
 
-                <!-- About -->
-                <li class="nav-item">
-                    <a class="nav-link"
-                       href="#">
-                        About
-                    </a>
-                </li>
-
-
                 <!-- Contact -->
                 <li class="nav-item">
                     <a class="nav-link"
-                       href="#">
+                       href="{% url 'contact' %}">
                         Contact
                     </a>
                 </li>

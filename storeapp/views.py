@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .models import (Category, Product,Customer, Order,OrderItem)
+from .models import (Category, Product,Customer, Order,OrderItem,Review,Contact)
 from .forms import ProductForm,RegisterForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -8,7 +8,6 @@ from decimal import Decimal
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.db.models import Avg,Count, Sum
-from .models import Product, Review
 from .forms import ReviewForm
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.models import User
@@ -720,4 +719,30 @@ def admin_dashboard(request):
         request,
         "admin_dashboard.html",
         context
+    )
+
+def contact(request):
+
+    if request.method == "POST":
+
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+
+        Contact.objects.create(
+            name=name,
+            email=email,
+            message=message
+        )
+
+        messages.success(
+            request,
+            "Your message has been submitted successfully!"
+        )
+
+        return redirect("contact")
+
+    return render(
+        request,
+        "contact.html"
     )

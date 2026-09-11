@@ -159,6 +159,13 @@ path(
         name="admin_dashboard"
     ),
 
+ path(
+
+        'contact/',
+         views.contact,
+         name='contact'
+    ),
+
     
 ]
 

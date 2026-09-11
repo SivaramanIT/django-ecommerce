@@ -16,7 +16,8 @@ from .models import (
     Customer,
     Order,
     OrderItem,
-    Review
+    Review,
+    Contact,
 )
 
 
@@ -132,4 +133,24 @@ class ReviewAdmin(admin.ModelAdmin):
     search_fields = (
         'product__name',
         'user__username',
+    )
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "name",
+        "email",
+        "message",
+        "created_at",
+    )
+
+    search_fields = (
+        "name",
+        "email",
+        "message",
+    )
+
+    list_filter = (
+        "created_at",
     )
